@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My College Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>My College Website</h1>
+    <nav aria-label="Main navigation">
+        <a href="Page1.html">Home</a>
+        <a href="Page2.html">Gallery</a>
+        <a href="Page3.html">Contact</a>
+        <a href="employee.php">Employee Form</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h2>My Details</h2>
+    <form action="save_details.php" method="POST" onsubmit="return validateUsername()">
+        <label for="department">Select Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Choose Department</option>
+            <option value="ICT" selected>ICT</option>
+            <option value="Business">Business</option>
+            <option value="Engineering">Engineering</option>
+        </select>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"
+               placeholder="Enter username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"
+               placeholder="Enter password" required>
+
+        <button type="submit">Submit</button>
+        <button type="reset" class="reset">Reset</button>
+        <p id="error" role="alert" aria-live="polite"></p>
+    </form>
+</main>
+
+<footer><p>&copy; 2026 My College Website</p></footer>
+
+<script>
+function validateUsername() {
+    const username = document.getElementById("username").value.trim();
+    const error = document.getElementById("error");
+
+    if (username === "") {
+        error.textContent = "Username cannot be empty.";
+        return false;
+    }
+
+    error.textContent = "";
+    return true;
+}
+</script>
+</body>
+</html>
